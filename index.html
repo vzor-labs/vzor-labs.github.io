@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VZOR</title>
+<meta name="description" content="VZOR — security engineering. Toronto. Launching soon.">
+<meta name="theme-color" content="#1B2A4A">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="VZOR">
+<meta property="og:description" content="Security engineering · Toronto · launching soon">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231B2A4A'/><path d='M17 19 L32 45 L47 19' fill='none' stroke='%232F5BEA' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<style>
+  :root {
+    --navy:   #1B2A4A;
+    --beige:  #E3D7C3;
+    --cobalt: #2F5BEA;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    padding: 0 16px;
+    background: var(--navy);
+    color: var(--beige);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Soft cobalt bloom behind the wordmark. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(60vmin 60vmin at 50% 42%,
+                rgba(47, 91, 234, 0.28), rgba(47, 91, 234, 0) 70%);
+    pointer-events: none;
+  }
+
+  main {
+    position: relative;
+    max-width: 34rem;
+    width: 100%;
+    padding: 12vh 0;
+    animation: rise 900ms ease-out both;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3.75rem, 22vw, 10rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: 0.14em;
+    /* Optical correction for the trailing letter-space. */
+    text-indent: 0.14em;
+    color: var(--beige);
+  }
+
+  .rule {
+    width: clamp(3rem, 18vw, 6.5rem);
+    height: 2px;
+    margin: clamp(1.75rem, 6vw, 2.75rem) auto;
+    border: 0;
+    background: var(--cobalt);
+    box-shadow: 0 0 18px rgba(47, 91, 234, 0.85);
+  }
+
+  .tagline {
+    margin: 0;
+    font-size: clamp(0.95rem, 3.6vw, 1.2rem);
+    line-height: 1.75;
+    letter-spacing: 0.055em;
+    color: var(--beige);
+    opacity: 0.88;
+    text-wrap: balance;
+  }
+
+  /* Keep each phrase intact; allow breaks only between them. */
+  .tagline span { white-space: nowrap; }
+
+  .tagline .sep {
+    color: var(--cobalt);
+    padding: 0 0.3em;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    main { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1>VZOR</h1>
+    <hr class="rule">
+    <p class="tagline">
+      <span>Security engineering</span><span class="sep" aria-hidden="true">·</span><span>Toronto</span><span class="sep" aria-hidden="true">·</span><span>launching soon</span>
+    </p>
+  </main>
+</body>
+</html>
