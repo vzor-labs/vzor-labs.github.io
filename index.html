@@ -1,113 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VZOR</title>
-<meta name="description" content="VZOR — security engineering. Toronto. Launching soon.">
-<meta name="theme-color" content="#1B2A4A">
-<meta name="color-scheme" content="dark">
-<meta property="og:title" content="VZOR">
-<meta property="og:description" content="Security engineering · Toronto · launching soon">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231B2A4A'/><path d='M17 19 L32 45 L47 19' fill='none' stroke='%232F5BEA' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/></svg>">
-<style>
-  :root {
-    --navy:   #1B2A4A;
-    --beige:  #E3D7C3;
-    --cobalt: #2F5BEA;
-  }
-
-  * { box-sizing: border-box; }
-
-  html, body { height: 100%; }
-
-  body {
-    margin: 0;
-    padding: 0 16px;
-    background: var(--navy);
-    color: var(--beige);
-    font-family: Georgia, "Times New Roman", Times, serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Soft cobalt bloom behind the wordmark. */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(60vmin 60vmin at 50% 42%,
-                rgba(47, 91, 234, 0.28), rgba(47, 91, 234, 0) 70%);
-    pointer-events: none;
-  }
-
-  main {
-    position: relative;
-    max-width: 34rem;
-    width: 100%;
-    padding: 12vh 0;
-    animation: rise 900ms ease-out both;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: clamp(3.75rem, 22vw, 10rem);
-    font-weight: 400;
-    line-height: 0.95;
-    letter-spacing: 0.14em;
-    /* Optical correction for the trailing letter-space. */
-    text-indent: 0.14em;
-    color: var(--beige);
-  }
-
-  .rule {
-    width: clamp(3rem, 18vw, 6.5rem);
-    height: 2px;
-    margin: clamp(1.75rem, 6vw, 2.75rem) auto;
-    border: 0;
-    background: var(--cobalt);
-    box-shadow: 0 0 18px rgba(47, 91, 234, 0.85);
-  }
-
-  .tagline {
-    margin: 0;
-    font-size: clamp(0.95rem, 3.6vw, 1.2rem);
-    line-height: 1.75;
-    letter-spacing: 0.055em;
-    color: var(--beige);
-    opacity: 0.88;
-    text-wrap: balance;
-  }
-
-  /* Keep each phrase intact; allow breaks only between them. */
-  .tagline span { white-space: nowrap; }
-
-  .tagline .sep {
-    color: var(--cobalt);
-    padding: 0 0.3em;
-  }
-
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: none; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    main { animation: none; }
-  }
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Find. Fix. Prove. · VZOR</title>
+    <meta name="description" content="VZOR Technologies — Find. Fix. Prove.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/vzor-icon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/pg.css">
+    <script src="/js/pg.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>VZOR</h1>
-    <hr class="rule">
-    <p class="tagline">
-      <span>Security engineering</span><span class="sep" aria-hidden="true">·</span><span>Toronto</span><span class="sep" aria-hidden="true">·</span><span>launching soon</span>
-    </p>
-  </main>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <!-- TODO(vzor): brief step 2.4 assigned vzor-lockup-reversed.svg here; using vzor-mark-reversed.svg.
+           (a) The lockup is 2.33:1, so in a 36x36 box its default preserveAspectRatio="xMidYMid meet"
+           would scale it to 36x15.4 and letterbox it - not stretched, but the word TECHNOLOGIES would
+           render about 3px tall and be unreadable. (b) This header already carries a text wordmark
+           beside the image, which would duplicate the lockup's own wordmark. (c) docs/brand/BRAND.md
+           assigns the eye mark to anything below ~48px, because the shield's circuit line disappears
+           at that size. Alternative: /img/brand/vzor-lockup-reversed.svg at 117x50 with the text spans
+           beside it dropped. -->
+      <img class="mark" src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="36" height="36">
+      <span><span>VZOR</span><span class="sub">Technologies</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" data-toggle="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="/services">Services</a>
+      <a href="/segments">Who we serve</a>
+      <a href="/agents">AI agents</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="cta" href="/snapshot">Free exposure snapshot</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Application security · WAF tuning · Audit-ready evidence</span>
+    <h1>Security work that ends with a letter your auditor, insurer or customer can rely on.</h1>
+    <p class="lead">We find the weaknesses in your web applications, fix them with your team, and prove it — in one engagement, from a named practitioner, with our own AI cyber security agents doing the heavy lifting under human sign-off.</p>
+    <div class="promise"><b>Find.</b> <b>Fix.</b> <b>Prove.</b> <span class="muted">— the whole loop, not just a report.</span></div>
+    <div class="actions row">
+      <a class="btn secondary" href="/snapshot">Get a free exposure snapshot</a>
+      <a class="btn ghost" href="/services">See the service ladder</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid cols-3">
+      <div class="card step"><span class="num">1</span>
+        <h3>Find</h3>
+        <p>A manual, authenticated review of your application or API against OWASP WSTG and ASVS. Our Triage agent clusters and de-duplicates scanner noise so the practitioner spends the hours on what matters.</p>
+      </div>
+      <div class="card step"><span class="num">2</span>
+        <h3>Fix</h3>
+        <p>A remediation sprint with your developers: WAF rules, configuration, code guidance. Warden drafts every WAF exception with scope, expiry and rollback. You keep ownership of production changes.</p>
+      </div>
+      <div class="card step"><span class="num">3</span>
+        <h3>Prove</h3>
+        <p>A retest and an attestation letter formatted for SOC 2 auditors, insurers and customer questionnaires, with evidence delivered into your Vanta or Drata workspace. Scribe drafts; the practitioner signs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section paper">
+  <div class="container">
+    <span class="eyebrow">The service ladder</span>
+    <h2>Start free. Climb only as far as your deadline needs.</h2>
+    <p class="lead">Fixed scopes and published starting prices in CAD. Every paid step includes the fix work and the proof, not just the findings.</p>
+    <div class="grid cols-3 mt-3">
+      <div class="card lift">
+        <span class="badge sand">FREE</span>
+        <h3>External Exposure Snapshot</h3>
+        <p class="muted">What an attacker sees from outside, in plain language.</p>
+        <div class="foot">
+          <span class="price">Free</span>
+          <a class="btn sm ghost" href="/services/SNAPSHOT">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">ONE TIME</span>
+        <h3>Web Application Security Review + Fix Sprint</h3>
+        <p class="muted">Find the weaknesses, fix them with you, prove it to your auditor.</p>
+        <div class="foot">
+          <span class="price">from $4,900</span>
+          <a class="btn sm ghost" href="/services/WEBAPP_FIX">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">ONE TIME</span>
+        <h3>Vulnerability Baseline + Insurance-Readiness Evidence Pack</h3>
+        <p class="muted">Pass your renewal without surprises.</p>
+        <div class="foot">
+          <span class="price">from $2,400</span>
+          <a class="btn sm ghost" href="/services/BASELINE">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">ONE TIME</span>
+        <h3>WAF Tuning Sprint</h3>
+        <p class="muted">Fewer false positives, cleaner rules, a decision record for every exception.</p>
+        <div class="foot">
+          <span class="price">from $3,500</span>
+          <a class="btn sm ghost" href="/services/WAF_TUNING">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">ONE TIME</span>
+        <h3>Compliance Readiness Pack</h3>
+        <p class="muted">Audit-ready evidence for one framework and one business boundary.</p>
+        <div class="foot">
+          <span class="price">from $4,500</span>
+          <a class="btn sm ghost" href="/services/COMPLIANCE">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">ONE TIME</span>
+        <h3>Municipal + Public-Sector Web Security Review</h3>
+        <p class="muted">Citizen-facing services reviewed, fixed and documented for council.</p>
+        <div class="foot">
+          <span class="price">from $6,500</span>
+          <a class="btn sm ghost" href="/services/PUBLIC_SECTOR">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">MONTHLY</span>
+        <h3>WAF + Vulnerability Retainer</h3>
+        <p class="muted">Someone owns your edge and your exposure every month.</p>
+        <div class="foot">
+          <span class="price">$1,500 - $3,500 per month</span>
+          <a class="btn sm ghost" href="/services/RETAINER">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">CREDITS</span>
+        <h3>Security Sprint Credits</h3>
+        <p class="muted">Capacity on call, without a retainer.</p>
+        <div class="foot">
+          <span class="price">10 credits from $5,500</span>
+          <a class="btn sm ghost" href="/services/CREDITS">Details</a>
+        </div>
+      </div>
+      <div class="card lift">
+        <span class="badge sand">PARTNER</span>
+        <h3>Partner Price List (MSPs and development agencies)</h3>
+        <p class="muted">Keep your client. Add our depth under your brand.</p>
+        <div class="foot">
+          <span class="price">15-20% off list</span>
+          <a class="btn sm ghost" href="/services/PARTNER">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <span class="eyebrow">Who we serve</span>
+    <h2>Four kinds of deadline. One way of working.</h2>
+    <div class="grid cols-2 mt-3">
+      <a class="card lift" href="/segments/SAAS">
+        <span class="badge navy">Software and SaaS teams</span>
+        <h3>Your customer asked for a pentest and SOC 2 evidence.</h3>
+        <p class="muted mb-0">Get a manual review, the fixes and an auditor-ready letter in three weeks, priced in CAD, from the practitioner you actually meet.</p>
+      </a><a class="card lift" href="/segments/REGULATED_SMB">
+        <span class="badge navy">Regulated small businesses and professional services</span>
+        <h3>Pass your cyber-insurance renewal without the surprises.</h3>
+        <p class="muted mb-0">One Ontario city lost $5 million of coverage over incomplete MFA. Here is the evidence pack that answers every question your broker will ask, and the fixes behind it.</p>
+      </a><a class="card lift" href="/segments/PUBLIC_SECTOR">
+        <span class="badge navy">Municipal and broader public sector</span>
+        <h3>A local practitioner for your citizen-facing web services.</h3>
+        <p class="muted mb-0">Reviewed, fixed and documented to MFIPPA and O. Reg. 51/26, priced under your invitational threshold, with a summary your council can read.</p>
+      </a><a class="card lift" href="/segments/PARTNERS">
+        <span class="badge navy">MSPs and development agencies</span>
+        <h3>Keep your client. Add AppSec depth and WAF tuning under your brand.</h3>
+        <p class="muted mb-0">No minimums, monthly billing, co-branded or white-labelled reports, and a conflict screen on every engagement. You are the advisor; we are the execution arm.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section navy">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">Our own AI cyber security agents</span>
+      <h2>Six agents. One rule: a person signs.</h2>
+      <p class="lead">We built Scout, Triage, Warden, Scribe, Ledger and Concierge to make a small practice fast and consistent. They reconnoitre, cluster, draft and map. They never exploit, never publish and never attest — every output passes a human gate before it reaches you.</p>
+      <a class="btn secondary" href="/agents">Meet the agents</a>
+    </div>
+    <div class="grid cols-2">
+      <div class="card navy">
+        <div class="row between"><h3>Scout</h3><span class="badge sand">PILOT</span></div>
+        <p class="muted mb-0">External exposure reconnaissance</p>
+      </div>
+      <div class="card navy">
+        <div class="row between"><h3>Triage</h3><span class="badge sand">PILOT</span></div>
+        <p class="muted mb-0">Finding clustering and validation support</p>
+      </div>
+      <div class="card navy">
+        <div class="row between"><h3>Warden</h3><span class="badge sand">PILOT</span></div>
+        <p class="muted mb-0">WAF tuning assistant</p>
+      </div>
+      <div class="card navy">
+        <div class="row between"><h3>Scribe</h3><span class="badge sand">LIVE</span></div>
+        <p class="muted mb-0">Report and attestation drafting</p>
+      </div>
+      <div class="card navy">
+        <div class="row between"><h3>Ledger</h3><span class="badge sand">PLANNED</span></div>
+        <p class="muted mb-0">Compliance evidence mapper</p>
+      </div>
+      <div class="card navy">
+        <div class="row between"><h3>Concierge</h3><span class="badge sand">PILOT</span></div>
+        <p class="muted mb-0">Intake and scheduling</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid cols-3">
+      <div class="card sand">
+        <h3>Named practitioner, capped load</h3>
+        <p class="mb-0">No more than <b>4</b> concurrent engagements across the team, so the five-day start promise holds. You meet the person who signs your letter.</p>
+      </div>
+      <div class="card sand">
+        <h3>Evidence your auditor accepts</h3>
+        <p class="mb-0">Findings with reproduction steps and CVSS, a retest record, an attestation letter with framework references, and evidence hashes. Exported to Jira, Vanta or Drata.</p>
+      </div>
+      <div class="card sand">
+        <h3>Clear boundaries</h3>
+        <p class="mb-0">Written authorization before any test. No work during an active incident. Round-the-clock response comes from a disclosed partner SOC, never an implied promise. <a href="/trust">Statement of practice</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="container">
+    <div class="card" style="flex-direction:row;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap">
+      <div>
+        <h3>Not sure where to start? Start with what an attacker sees.</h3>
+        <p class="muted mb-0">Scout runs a bounded, read-only External Exposure Snapshot of one domain — free, reviewed by a practitioner before it reaches you.</p>
+      </div>
+      <a class="btn" href="/snapshot">Request the free snapshot</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <!-- TODO(vzor): brief step 2.4 assigned /img/brand/vzor-mark.svg at the old 220x50 box; two deviations.
+             (1) Using the reversed variant: this footer ground is deep navy (the navy-900 token), so the
+             navy mark would be invisible on it. (2) Size changed from 220x50 to 50x50: the mark's viewBox
+             is square (0 0 200 200), so at 220x50 its default preserveAspectRatio="xMidYMid meet" would
+             centre a 50x50 mark inside a 220-wide box - not distorted, but with ~170px of dead space that
+             the block-level img would hold open above the footer tagline. 50x50 removes it.
+             Alternative that keeps a wordmark in the footer: /img/brand/vzor-lockup-reversed.svg at 117x50. -->
+        <img src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="50" height="50">
+        <p class="mt-2">Find. Fix. Prove. A small, named practice for organizations that need weaknesses found, fixed with their team, and proven to an auditor, insurer or customer.</p>
+        <p><span>Toronto</span> · <a href="mailto:hello@vzor.ca">hello@vzor.ca</a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="clean">
+          <li><a href="/services/WEBAPP_FIX">Web app review + fix sprint</a></li>
+          <li><a href="/services/BASELINE">Insurance-readiness baseline</a></li>
+          <li><a href="/services/WAF_TUNING">WAF tuning sprint</a></li>
+          <li><a href="/services/RETAINER">Co-managed retainer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul class="clean">
+          <li><a href="/agents">Our AI agents</a></li>
+          <li><a href="/trust">Statement of practice</a></li>
+          <li><a href="/about">About the practice</a></li>
+          <li><a href="/segments/PARTNERS">Partner program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Start</h4>
+        <ul class="clean">
+          <li><a href="/snapshot">Free exposure snapshot</a></li>
+          <li><a href="/contact">Book a discovery call</a></li>
+          
+          
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span>2026</span> <span>VZOR Technologies</span>.</span>
+      Readiness assessments and attestation letters describe work performed; they are not certifications and not a guarantee against compromise.
+      Every engagement is authorized in writing before any testing starts.
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trust · VZOR</title>
+    <meta name="description" content="VZOR Technologies — Find. Fix. Prove.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/vzor-icon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/pg.css">
+    <script src="/js/pg.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <!-- TODO(vzor): brief step 2.4 assigned vzor-lockup-reversed.svg here; using vzor-mark-reversed.svg.
+           (a) The lockup is 2.33:1, so in a 36x36 box its default preserveAspectRatio="xMidYMid meet"
+           would scale it to 36x15.4 and letterbox it - not stretched, but the word TECHNOLOGIES would
+           render about 3px tall and be unreadable. (b) This header already carries a text wordmark
+           beside the image, which would duplicate the lockup's own wordmark. (c) docs/brand/BRAND.md
+           assigns the eye mark to anything below ~48px, because the shield's circuit line disappears
+           at that size. Alternative: /img/brand/vzor-lockup-reversed.svg at 117x50 with the text spans
+           beside it dropped. -->
+      <img class="mark" src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="36" height="36">
+      <span><span>VZOR</span><span class="sub">Technologies</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" data-toggle="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="/services">Services</a>
+      <a href="/segments">Who we serve</a>
+      <a href="/agents">AI agents</a>
+      <a href="/trust" class="active">Trust</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="cta" href="/snapshot">Free exposure snapshot</a>
+    </nav>
+  </div>
+</header>
+
+<section class="section paper">
+  <div class="container">
+    <span class="eyebrow">Trust</span>
+    <h1>How we work, what we promise, and what we will not do.</h1>
+    <p class="lead">Small practices earn trust with boundaries, not brochures. This page is the version of our terms you can read in five minutes. The signed engagement letter says the same thing in more words.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid cols-2">
+    <div class="card">
+      <h3>Who we work with</h3>
+      <p>Private-sector organizations, and provincial and municipal public bodies, mainly in Ontario. We do not take on federal government work, and we screen every intake for conflicts before a discovery call is booked.</p>
+    </div>
+    <div class="card">
+      <h3>Authorization first</h3>
+      <p>No testing starts without an engagement letter and rules of engagement signed by someone authorized to arrange it. The free snapshot runs only against a domain the requester attests they are authorized to have assessed, and it is read-only.</p>
+    </div>
+    <div class="card">
+      <h3>Capacity you can plan around</h3>
+      <p>At most <b>4</b> concurrent engagements across the team. Each engagement has a named practitioner and a named backup, a report due date and a retest date. If we cannot start within the tier you chose, we say so before you sign.</p>
+    </div>
+    <div class="card">
+      <h3>Business hours, honestly</h3>
+      <p>We respond within defined business-hours windows written into the retainer. We do not claim round-the-clock coverage. When a client needs it, a disclosed partner SOC provides it under its own terms, and we do the onboarding, tuning and reporting.</p>
+    </div>
+    <div class="card">
+      <h3>Not during an incident</h3>
+      <p>We do not begin testing, tuning or evidence collection while an incident is active. We will refer you to an incident-response firm and pick up the hardening and the attestation afterwards.</p>
+    </div>
+    <div class="card">
+      <h3>Readiness, not certification</h3>
+      <p>Compliance readiness packs prepare you for an audit or a certification body. The certificate is theirs to issue. Our attestation letters describe the work performed and the state observed at the retest, with evidence hashes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section sand">
+  <div class="container split">
+    <div>
+      <h2>Evidence and privacy</h2>
+      <ul class="ticks">
+        <li>Findings, screenshots and logs are stored in an engagement workspace with access limited to the practitioners named in the letter.</li>
+        <li>Credentials are used only for the authenticated review and are rotated or revoked by you when the retest is done.</li>
+        <li>Client evidence is never used to train a model. Agent drafts are generated from the engagement record and validated evidence only.</li>
+        <li>Reports and letters are delivered to the contacts named in the letter, and to your Vanta or Drata workspace or Jira project when you ask.</li>
+        <li>Intake data is used to run the conflict screen and to contact you about your request. You can ask us to delete it at any time.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Insurance and standing</h2>
+      <p>Professional liability and cyber liability coverage is arranged before the first paid engagement; certificates are provided with the engagement letter on request. We follow OWASP WSTG and ASVS for application work and reference the framework version in every attestation.</p>
+      <h2 class="mt-3">Partner ecosystem</h2>
+      <p class="small muted">Relationships in place today. Partner SOC, compliance-platform and broker relationships are disclosed in writing on each engagement; partner services are contracted with the partner directly.</p>
+      <div class="table-wrap">
+        <table class="tbl">
+          <thead><tr><th>Partner</th><th>Role</th><th>Status</th></tr></thead>
+          <tbody>
+          
+          <tr>
+            <td><a href="https://owasp.org/www-chapter-toronto/" rel="noopener">OWASP Toronto</a></td>
+            <td>COMMUNITY</td>
+            <td><span class="badge ok">ACTIVE</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <!-- TODO(vzor): brief step 2.4 assigned /img/brand/vzor-mark.svg at the old 220x50 box; two deviations.
+             (1) Using the reversed variant: this footer ground is deep navy (the navy-900 token), so the
+             navy mark would be invisible on it. (2) Size changed from 220x50 to 50x50: the mark's viewBox
+             is square (0 0 200 200), so at 220x50 its default preserveAspectRatio="xMidYMid meet" would
+             centre a 50x50 mark inside a 220-wide box - not distorted, but with ~170px of dead space that
+             the block-level img would hold open above the footer tagline. 50x50 removes it.
+             Alternative that keeps a wordmark in the footer: /img/brand/vzor-lockup-reversed.svg at 117x50. -->
+        <img src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="50" height="50">
+        <p class="mt-2">Find. Fix. Prove. A small, named practice for organizations that need weaknesses found, fixed with their team, and proven to an auditor, insurer or customer.</p>
+        <p><span>Toronto</span> · <a href="mailto:hello@vzor.ca">hello@vzor.ca</a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="clean">
+          <li><a href="/services/WEBAPP_FIX">Web app review + fix sprint</a></li>
+          <li><a href="/services/BASELINE">Insurance-readiness baseline</a></li>
+          <li><a href="/services/WAF_TUNING">WAF tuning sprint</a></li>
+          <li><a href="/services/RETAINER">Co-managed retainer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul class="clean">
+          <li><a href="/agents">Our AI agents</a></li>
+          <li><a href="/trust">Statement of practice</a></li>
+          <li><a href="/about">About the practice</a></li>
+          <li><a href="/segments/PARTNERS">Partner program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Start</h4>
+        <ul class="clean">
+          <li><a href="/snapshot">Free exposure snapshot</a></li>
+          <li><a href="/contact">Book a discovery call</a></li>
+          
+          
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span>2026</span> <span>VZOR Technologies</span>.</span>
+      Readiness assessments and attestation letters describe work performed; they are not certifications and not a guarantee against compromise.
+      Every engagement is authorized in writing before any testing starts.
+    </div>
+  </div>
+</footer>
+</body>
+</html>

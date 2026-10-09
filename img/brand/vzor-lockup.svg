@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 700 300" role="img" aria-label="VZOR Technologies">
+  <title>VZOR Technologies</title>
+  <path d="M 0 0 L 60 160 L 120 0" fill="none" stroke="#0F2440" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 168 0 L 288 0 L 168 160 L 288 160" fill="none" stroke="#0F2440" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="416" cy="80" r="82" fill="none" stroke="#0F2440" stroke-width="28"/>
+  <circle cx="430" cy="72" r="23" fill="#2457C5"/>
+  <path d="M 546 160 L 546 0 L 598 0 A 38 38 0 0 1 598 76 L 546 76" fill="none" stroke="#0F2440" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 590 76 L 644 160" fill="none" stroke="#0F2440" stroke-width="28" stroke-linecap="round"/>
+  <text x="330" y="246" text-anchor="middle" font-family="Archivo, 'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="30" letter-spacing="17" fill="#0F2440">TECHNOLOGIES</text>
+</svg>

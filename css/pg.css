@@ -1,0 +1,416 @@
+/* ============================================================================
+   VZOR Technologies - design system
+   ----------------------------------------------------------------------------
+   LIGHT GROUNDS  bone  #F4EEE2  page ground (--bg -> --beige-100)
+                  white #FFFFFF  cards, tables, inputs, secondary button (--paper)
+                  beige #E6DAC6  alternate grounds (.section.sand, .card.sand,
+                                 nav/CTA pills) and tinted panels (fieldset,
+                                 .notice, table head) -- --beige-200, --beige-50
+                  sand  #C9B48F  every border, divider and rule (--line,
+                                 --grey-200, --grey-300) plus the light accent
+                                 ground --navy-100 (.alert.info, ghost hover)
+   DARK GROUNDS   navy  #0F2440  primary dark ground: header, hero,
+                                 .section.navy, .ops-side (--navy-800)
+                  deep  #081A30  footer and <pre> (--navy-900)
+                  slate #2A3D5C  nested dark surfaces one step up from navy:
+                                 .card.navy, .kpi.navy, .card.step .num,
+                                 .badge.current -- and dark ink on light
+                                 grounds (--navy-700)
+   INK            #0F2440        body copy and headings on light grounds
+                                 (--ink, --navy-800)
+                  #4A5A6E        muted and secondary text on light grounds
+                                 (--muted, --grey-700/500/400)
+                  #F4EEE2/#E6DAC6  body and heading text on dark grounds
+                  #B7AC97        muted text and hairlines on dark grounds
+                                 (--navy-300)
+   ACCENT         cobalt #2457C5       links, primary .btn, the focus OUTLINE,
+                                       eyebrows -- on LIGHT grounds only
+                                       (--navy-600, --brass)
+                  light cobalt #3A6FE0 links on NAVY grounds (.section.navy a,
+                                       .site-footer a, .ops-side nav a) and the
+                                       focus border on white (--navy-500)
+   Never cobalt text on navy; never light cobalt as a link colour on a light
+   ground. The focus ring is cobalt #2457C5 (outline) with a light cobalt
+   #3A6FE0 border; both are measured in the audit, not assumed.
+   TYPE           Archivo only -- --font-display is an alias of --font-text.
+                  500 for body copy, labels, hints and spaced caps; 600 for
+                  h1-h4, buttons and badges. The Google Fonts request in
+                  fragments/layout.html loads wght@500;600 ONLY, so no rule in
+                  this file may declare 400 or 700. Spaced caps (TECHNOLOGIES)
+                  track at .58em per docs/brand/BRAND.md.
+   Remaining gaps that need a new selector are marked TODO(vzor): below.
+   ============================================================================ */
+
+:root {
+  /* Navy: three distinct dark grounds, deepest first */
+  --navy-900: #081A30;  /* deep navy: footer, <pre>, dark rims */
+  --navy-800: #0F2440;  /* navy: primary dark ground; ink and headings on light */
+  --navy-700: #2A3D5C;  /* navy one step up: nested dark surfaces; dark ink on light */
+  --navy-600: #2457C5;  /* cobalt: links, primary button, focus outline (light grounds) */
+  --navy-500: #3A6FE0;  /* light cobalt: links on navy; focus border on white */
+  --navy-300: #B7AC97;  /* warm neutral for dark grounds: muted text, hairlines */
+  --navy-100: #C9B48F;  /* sand: light accent ground (.alert.info, .btn.ghost:hover) */
+
+  /* Beige / sand. NOTE the names are no longer a luminance ramp: --beige-100 is
+     the bone page ground, --beige-50 is the beige panel tint that sits ON it. */
+  --beige-50:  #E6DAC6; /* beige: tinted panels (fieldset, .notice, table head,
+                           .bar-row.window) and the heading colour on dark grounds.
+                           TODO(vzor): --beige-50 and --beige-200 share #E6DAC6.
+                           The palette has only three usable light grounds (white,
+                           bone, beige) for four ground roles (cards, page,
+                           panels, alternate sections), so one pair must collide.
+                           Consequence: a panel placed inside .section.sand or
+                           .card.sand loses its tint (no template does this), and
+                           headings on navy are the same beige as .lead/p instead
+                           of being brighter. Both are cosmetic, not contrast
+                           failures. A fourth light value in BRAND.md (e.g. a
+                           second bone step) would let these separate. */
+  --beige-100: #F4EEE2; /* bone: page ground (--bg) and body text on dark grounds */
+  --beige-200: #E6DAC6; /* beige: alternate grounds, nav/CTA pills, paragraph text on navy */
+  --beige-300: #B7AC97; /* deeper warm neutral: .card.sand border, ticks dot */
+  --beige-400: #C9B48F; /* sand; no rule references this token */
+  --brass:     #2457C5; /* cobalt accent on light grounds */
+  --brass-soft:#C9B48F; /* sand: the eyebrow accent on the hero's navy ground */
+
+  /* Grey (now the warm neutrals: navy ink, #4A5A6E muted text, sand borders) */
+  --grey-900: #0F2440;  /* --ink */
+  --grey-700: #4A5A6E;  /* secondary body text on light grounds */
+  --grey-500: #4A5A6E;  /* --muted */
+  --grey-400: #4A5A6E;  /* .status-flow arrows */
+  --grey-300: #C9B48F;  /* sand: input and .badge.outline borders */
+  --grey-200: #C9B48F;  /* sand: --line (every border and divider), .bar track */
+  --grey-100: #F4EEE2;  /* bone: default .badge fill */
+
+  /* Semantic */
+  --ok:      #2F6B4F;
+  --ok-bg:   #E3EFE8;
+  --warn:    #8A6420;
+  --warn-bg: #F6ECD6;
+  --bad:     #8B2E2E;
+  --bad-bg:  #F3E1E1;
+  --info:    var(--navy-600);
+  --info-bg: var(--navy-100);
+
+  --bg: var(--beige-100);
+  --paper: #FFFFFF; /* TODO(vzor): deliberate, documented deviation from brief step 3.1
+                       ("alternate light ground / cards -> #E6DAC6") and from BRAND.md
+                       ("Bone #F4EEE2 | page ground, cards"). Cards, tables and inputs
+                       stay white: white is in the VZOR palette, the page ground is
+                       already bone (--beige-100), and white is the only ground where
+                       the two lowest-contrast elements in the system clear their
+                       thresholds -- sand borders (2.02:1, the best the palette allows)
+                       and the light-cobalt label on .btn.secondary (4.64:1). Beige is
+                       still used as the brief's alternate ground (--beige-200) and as
+                       the panel tint (--beige-50). Revert to #E6DAC6 only together with
+                       a darker border token than sand. */
+  --ink: var(--grey-900);
+  --muted: var(--grey-500);
+  --line: var(--grey-200);
+
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif; /* TODO(vzor): now an alias of --font-text (Archivo); VZOR has one family, so the display/text distinction is dead. 8 selectors still reference this variable. */
+  --font-text: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(15, 36, 64, 0.06), 0 8px 24px rgba(15, 36, 64, 0.08);
+  --shadow-sm: 0 1px 2px rgba(15, 36, 64, 0.08);
+  --max: 1140px;
+  --gutter: 20px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: var(--navy-600); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--navy-800);
+  margin: 0 0 .5em;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(2rem, 4vw, 3.1rem); }
+h2 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.05rem; font-family: var(--font-text); font-weight: 600; }
+p { margin: 0 0 1em; }
+small, .small { font-size: .875rem; }
+.muted { color: var(--muted); } /* TODO(vzor): B2 -- --muted is #4A5A6E and only .section.navy .muted / .card.navy .muted / .kpi.navy .label / .kpi.navy .sub override it for dark grounds. Two live cases are therefore still unreachable: the `<span class="muted">` inside .hero .promise on the homepage (2.21:1) and the one inside .kpi.navy .value on the ops dashboard (1.55:1). No single value can serve both grounds (4.5:1 on white needs L<=0.142, 4.5:1 on #2A3D5C needs L>=0.383), so the fix is one new rule -- `.hero .muted, .kpi.navy .muted { color: var(--navy-300); }` -- which this pass may not add. */
+.lead { font-size: 1.15rem; color: var(--grey-700); }
+/* TODO(vzor): --brass is cobalt and .hero is the only dark-ground override (.hero .eyebrow -> --brass-soft sand, 7.73:1). The eyebrow inside .section.navy on the homepage therefore renders cobalt on navy: 2.41:1, and off-brand ("never cobalt on navy"). Nothing in the palette clears 4.5:1 on both bone and navy, so --brass cannot absorb this; it needs `.section.navy .eyebrow { color: var(--brass-soft); }`, a new selector this pass may not add. Baseline brass #A98A55 scored 5.03:1 there, so this is the one contrast regression of the rebrand that the no-new-selector rule leaves standing. */
+.eyebrow {
+  font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brass); margin-bottom: .6rem; display: block;
+}
+code, pre { font-family: var(--font-mono); font-size: .9em; }
+pre {
+  background: var(--navy-900); color: var(--beige-100); padding: 1rem 1.2rem; border-radius: var(--radius-sm);
+  overflow: auto; white-space: pre-wrap; word-break: break-word;
+}
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+ul.clean { list-style: none; padding: 0; margin: 0; }
+ul.ticks { list-style: none; padding: 0; margin: 0 0 1rem; }
+ul.ticks li { position: relative; padding-left: 1.6rem; margin-bottom: .45rem; }
+ul.ticks li::before {
+  content: ""; position: absolute; left: 0; top: .5em; width: .8rem; height: .8rem; border-radius: 50%;
+  background: var(--beige-300); box-shadow: inset 0 0 0 3px var(--paper), inset 0 0 0 4px var(--navy-600);
+}
+
+/* Layout ------------------------------------------------------------------ */
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: 3.5rem 0; }
+.section.tight { padding: 2rem 0; }
+.section.paper { background: var(--paper); }
+.section.navy { background: var(--navy-800); color: var(--beige-100); }
+.section.navy h1, .section.navy h2, .section.navy h3 { color: var(--beige-50); }
+.section.navy .muted { color: var(--navy-300); }
+.section.navy .lead, .section.navy p { color: var(--beige-200); }
+.section.navy a { color: var(--navy-500); } /* TODO(vzor): B1 repoint --beige-200 -> --navy-500 (light cobalt #3A6FE0). BRAND.md: links on navy are light cobalt, never cobalt. Cost: 3.36:1 on navy, below the 4.5:1 AA threshold for normal text (beige was 11.29:1 but was not a link colour at all). */
+.section.sand { background: var(--beige-200); }
+.grid { display: grid; gap: 1.25rem; }
+.grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: start; }
+.stack > * + * { margin-top: 1rem; }
+.row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.between { justify-content: space-between; }
+.right { text-align: right; }
+.center { text-align: center; }
+.mt-1 { margin-top: .5rem; } .mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 2rem; }
+.mb-0 { margin-bottom: 0; } .mb-2 { margin-bottom: 1rem; }
+
+@media (max-width: 900px) {
+  .grid.cols-3, .grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .grid.cols-2, .grid.cols-3, .grid.cols-4 { grid-template-columns: 1fr; }
+  .section { padding: 2.5rem 0; }
+}
+
+/* Header / nav (public) -------------------------------------------------- */
+.site-header {
+  background: var(--navy-800); color: var(--beige-100); position: sticky; top: 0; z-index: 20;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: .7rem; color: var(--beige-50); font-family: var(--font-display); font-size: 1.25rem; }
+.brand:hover { text-decoration: none; }
+.brand .mark { width: 36px; height: 36px; }
+.brand .sub { display: block; font-family: var(--font-text); font-size: .62rem; letter-spacing: .58em; text-transform: uppercase; color: var(--navy-300); line-height: 1; margin-top: 2px; } /* TODO(vzor): T2 -- .18em -> .58em (--vzor-tracking-caps), matching the lockup SVG, which draws TECHNOLOGIES at 17/30 = .567em. No layout cost: letter-spacing adds width, not height, so the 36px mark and the 68px min-height header are untouched; TECHNOLOGIES at .62rem/.58em is ~143px, and the brand block stays under 200px against ~1100px of header. */
+.nav { display: flex; gap: .2rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--beige-200); padding: .45rem .7rem; border-radius: 999px; font-size: .95rem; }
+.nav a:hover { background: rgba(255,255,255,.08); text-decoration: none; }
+.nav a.active { background: rgba(255,255,255,.12); color: #fff; }
+.nav a.cta { background: var(--beige-200); color: var(--navy-800); font-weight: 600; margin-left: .4rem; }
+.nav a.cta:hover { background: var(--beige-100); }
+.nav-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,.25); color: var(--beige-100); border-radius: 8px; padding: .4rem .6rem; font: inherit; }
+@media (max-width: 860px) {
+  .nav-toggle { display: inline-block; }
+  .nav { display: none; width: 100%; flex-direction: column; align-items: stretch; padding-bottom: .75rem; }
+  .nav.open { display: flex; }
+  .site-header .container { flex-wrap: wrap; }
+}
+
+/* Hero ------------------------------------------------------------------- */
+.hero { background: var(--navy-800); color: var(--beige-100); padding: 4.5rem 0 4rem; position: relative; overflow: hidden; }
+.hero::after {
+  content: ""; position: absolute; right: -140px; top: -140px; width: 520px; height: 520px; border-radius: 50%;
+  border: 60px solid rgba(230, 218, 198, .06); pointer-events: none;
+}
+.hero::before {
+  content: ""; position: absolute; right: 60px; top: 60px; width: 180px; height: 180px; border-radius: 50%;
+  background: rgba(230, 218, 198, .05); pointer-events: none;
+}
+.hero h1 { color: var(--beige-50); max-width: 720px; }
+.hero .lead { color: var(--beige-200); max-width: 640px; }
+.hero .eyebrow { color: var(--brass-soft); }
+.hero .promise { display: inline-flex; gap: .6rem; align-items: baseline; font-family: var(--font-display); font-size: 1.1rem; color: var(--beige-200); margin-bottom: 1.2rem; }
+.hero .promise b { color: var(--beige-50); font-weight: 600; }
+.hero .actions { margin-top: 1.5rem; }
+
+/* Buttons ---------------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.2rem; border-radius: 999px;
+  font-weight: 600; font-size: .95rem; border: 1px solid transparent; cursor: pointer; font-family: var(--font-text);
+  background: var(--navy-600); color: #fff; transition: background .15s, transform .05s; line-height: 1.2; /* TODO(vzor): M1 repoint --navy-700 -> --navy-600 (cobalt #2457C5): brief step 3.1 maps primary buttons to cobalt, while --navy-700 keeps its other two roles (nested dark surface and dark ink on light grounds). #fff on cobalt = 6.47:1. */
+}
+.btn:hover { background: var(--navy-800); text-decoration: none; } /* TODO(vzor): M1 repoint --navy-600 -> --navy-800: --navy-600 is now the button's resting cobalt, so hover darkens to navy (#fff on it = 15.59:1). */
+.btn:active { transform: translateY(1px); }
+.btn.secondary { background: var(--paper); color: var(--navy-800); } /* TODO(vzor): M6 repoint --beige-200 -> --paper (white). `.section.navy a` (0,2,1) outranks `.btn.secondary` (0,2,0), so inside .section.navy this pill takes the link colour, not --navy-800 -- that is why the homepage CTA was beige-on-beige at 1.00:1. White is the only allowed ground on which light cobalt #3A6FE0 reaches AA (4.64:1); it is also 15.59:1 with --navy-800 everywhere else. Every .btn.secondary in the templates (hero, .section.navy, .ops-side) sits on a navy ground. The structural fix is a `.section.navy .btn.secondary` rule, which this pass may not add. */
+.btn.secondary:hover { border-color: var(--navy-600); } /* TODO(vzor): M6 -- the hover now changes the border, not the fill. Any darker fill drops the inherited light-cobalt label below 4.5:1 (bone 4.01:1, beige 3.36:1), and white is the top of the palette, so the fill cannot move. Cobalt border on the white pill = 6.47:1. */
+.btn.ghost { background: transparent; color: var(--navy-700); border-color: var(--navy-700); } /* TODO(vzor): border-color repointed --navy-300 -> --navy-700 (#2A3D5C): --navy-300 is now #B7AC97 and scores 1.94:1 on bone, failing 3:1 for a control border. Label and border are now 9.46:1 on bone, 10.93:1 on white, 7.92:1 on beige, 5.42:1 on sand. */
+.btn.ghost:hover { background: var(--navy-100); }
+.hero .btn.ghost { color: var(--beige-100); border-color: rgba(255,255,255,.35); } /* TODO(vzor): M6 -- .hero is the ONLY navy-ground override for .btn.ghost. On any other navy ground the label would be #2A3D5C on #0F2440 = 1.43:1 (was 1.00:1 before --navy-700 was separated from --navy-800). No template does this today; the fix is `.section.navy .btn.ghost, .ops-side .btn.ghost { color: var(--beige-100); border-color: rgba(255,255,255,.35); }`, a new selector this pass may not add. A dual-ground border is possible (--navy-500 is 4.01:1 on bone and 3.36:1 on navy) but the label is not: no allowed value clears 4.5:1 on both bone and navy. */
+.hero .btn.ghost:hover { background: rgba(255,255,255,.08); }
+.btn.sm { padding: .4rem .8rem; font-size: .82rem; }
+.btn.danger { background: var(--bad); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Cards ------------------------------------------------------------------ */
+.card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.5rem;
+  box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: .5rem;
+}
+.card.lift:hover { box-shadow: var(--shadow); border-color: var(--navy-600); } /* TODO(vzor): M3 repoint --beige-300 -> --navy-600 (cobalt). --beige-300 has to stay a warm light neutral for .card.sand's border and the ticks dot, and the only two such values in the palette (#C9B48F, #B7AC97) differ by 1.12:1 -- indistinguishable from the resting sand border, which is what made this hover a no-op. Cobalt is the interactive accent on light grounds: 3.21:1 against the resting border and 6.47:1 against the white card. */
+.card h3 { margin-bottom: .15rem; }
+.card .price { font-family: var(--font-display); font-size: 1.35rem; color: var(--navy-700); }
+.card .foot { margin-top: auto; padding-top: .75rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.card.navy { background: var(--navy-700); color: var(--beige-100); border-color: var(--navy-300); } /* TODO(vzor): M1 border-color repointed --navy-600 -> --navy-300 (#B7AC97). Cobalt on navy is off-brand and 2.41:1; deep navy was 1.12:1 against the .section.navy ground it nests in. --navy-300 is the warm hairline for dark grounds: 6.95:1 against the navy section and 4.87:1 against this card's own #2A3D5C fill, so the agent cards read as boxes again. The fill itself is 1.43:1 against the section. */
+.card.navy h3 { color: var(--beige-50); }
+.card.navy .muted { color: var(--navy-300); }
+.card.sand { background: var(--beige-200); border-color: var(--beige-300); }
+.card.step { position: relative; padding-top: 2.2rem; }
+.card.step .num {
+  position: absolute; top: -14px; left: 1.5rem; width: 34px; height: 34px; border-radius: 50%; background: var(--navy-700);
+  color: var(--beige-100); display: grid; place-items: center; font-family: var(--font-display); font-size: 1rem;
+}
+
+/* Badges ----------------------------------------------------------------- */
+.badge {
+  display: inline-block; padding: .18rem .6rem; border-radius: 999px; font-size: .72rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; background: var(--grey-100); color: var(--grey-700); white-space: nowrap;
+}
+.badge.navy { background: var(--navy-800); color: var(--beige-50); } /* TODO(vzor): M4 repoint --navy-100 -> --navy-800 and --navy-700 -> --beige-50. The three badge fills had collapsed onto #E6DAC6 and the text cue between .badge and .badge.navy was 2.21:1. The palette has no second light navy tint, so .badge.navy becomes what its name says: a navy pill with beige text (11.29:1). Fills are now bone / navy / beige, which no viewer can confuse. */
+.badge.ok { background: var(--ok-bg); color: var(--ok); }
+.badge.warn { background: var(--warn-bg); color: var(--warn); }
+.badge.bad { background: var(--bad-bg); color: var(--bad); }
+.badge.sand { background: var(--beige-200); color: var(--brass); }
+.badge.outline { background: transparent; border: 1px solid var(--grey-300); }
+
+/* Tables ----------------------------------------------------------------- */
+.table-wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+table.tbl { width: 100%; border-collapse: collapse; font-size: .92rem; }
+table.tbl th, table.tbl td { padding: .7rem .9rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+table.tbl th { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--beige-50); font-weight: 600; }
+table.tbl tr:last-child td { border-bottom: 0; }
+table.tbl td.num, table.tbl th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.tbl tr.total td { font-weight: 600; background: var(--beige-50); }
+table.tbl .inline-form { display: inline-flex; gap: .35rem; align-items: center; }
+
+/* Forms ------------------------------------------------------------------ */
+.form { display: grid; gap: 1rem; }
+.form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .form .two { grid-template-columns: 1fr; } }
+label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .3rem; color: var(--grey-700); }
+label .hint { display: block; font-weight: 500; color: var(--muted); font-size: .8rem; } /* TODO(vzor): T1 -- was font-weight: 400. Archivo is loaded as wght@500;600 only, so 400 never downloaded and this already rendered at 500; the declaration now says what ships. The lighter-than-body hint weight is gone -- the hint is distinguished by .8rem and --muted alone. */
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], select, textarea {
+  width: 100%; padding: .65rem .8rem; border: 1px solid var(--grey-300); border-radius: var(--radius-sm);
+  font: inherit; background: var(--paper); color: var(--ink);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--navy-600); outline-offset: 1px; border-color: var(--navy-500); } /* TODO(vzor): outline repointed --navy-300 -> --navy-600: #B7AC97 is 2.24:1 on white and fails 3:1 for a focus indicator. The ring is cobalt #2457C5 (6.47:1 on white) and the field border goes light cobalt #3A6FE0 (4.64:1) -- see the header comment; #3A6FE0 is the links-on-navy colour, not the ring. */
+textarea { min-height: 120px; resize: vertical; }
+.check { display: flex; gap: .6rem; align-items: flex-start; font-weight: 500; } /* TODO(vzor): T1 -- was font-weight: 400. Its real job is to cancel the 600 inherited from `label`, which 500 does; the intended step below body weight is unavailable in the loaded Archivo range. */
+.check input { margin-top: .3rem; width: auto; }
+.field-error { color: var(--bad); font-size: .85rem; margin-top: .3rem; }
+select.inline, input.inline { width: auto; padding: .3rem .5rem; font-size: .85rem; }
+fieldset { border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 0; background: var(--beige-50); }
+legend { font-weight: 600; padding: 0 .4rem; color: var(--navy-700); }
+
+/* Alerts ----------------------------------------------------------------- */
+.alert { padding: .85rem 1.1rem; border-radius: var(--radius-sm); border: 1px solid; margin-bottom: 1rem; }
+.alert.ok { background: var(--ok-bg); border-color: #BBD5C6; color: var(--ok); }
+.alert.warn { background: var(--warn-bg); border-color: #E6D2A3; color: var(--warn); }
+.alert.bad { background: var(--bad-bg); border-color: #E2BEBE; color: var(--bad); }
+.alert.info { background: var(--info-bg); border-color: #2A3D5C; color: var(--navy-700); } /* TODO(vzor): --info-bg is now sand (--navy-100), so the border literal moves from #C9B48F (which matched the new fill exactly, 1.00:1) to #2A3D5C, the same slate as the text: 5.42:1 against its own fill, where the only warm value darker than sand, #B7AC97, would have given 1.11:1. The other three alerts keep their own status-colour borders. */
+.notice { border-left: 4px solid var(--brass); background: var(--beige-50); padding: .9rem 1.1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+
+/* Footer ----------------------------------------------------------------- */
+.site-footer { background: var(--navy-900); color: var(--navy-300); padding: 3rem 0 2rem; margin-top: 3rem; font-size: .9rem; }
+.site-footer a { color: var(--navy-500); } /* TODO(vzor): B1 repoint --beige-200 -> --navy-500. 3.77:1 on deep navy #081A30 -- passes 3:1, fails 4.5:1; brand-mandated link colour. */
+.site-footer .cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+.site-footer h4 { color: var(--beige-100); margin-bottom: .6rem; }
+.site-footer .legal { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.08); font-size: .8rem; }
+@media (max-width: 800px) { .site-footer .cols { grid-template-columns: 1fr 1fr; } }
+
+/* Ops layout ------------------------------------------------------------- */
+.ops { display: grid; grid-template-columns: 236px 1fr; min-height: 100vh; }
+.ops-side { background: var(--navy-800); color: var(--beige-100); padding: 1.25rem 1rem; position: sticky; top: 0; height: 100vh; overflow: auto; }
+.ops-side .brand { margin-bottom: 1.5rem; }
+.ops-side nav a { display: flex; align-items: center; gap: .6rem; color: var(--navy-500); padding: .55rem .75rem; border-radius: var(--radius-sm); font-size: .93rem; } /* TODO(vzor): B1 repoint --beige-200 -> --navy-500. These are anchors on a navy ground, so the brand link colour applies; it costs contrast (3.36:1, was 11.29:1). .active keeps its beige pill, and hover keeps its rgba wash, so the current item is still identified without colour. */
+.ops-side nav a:hover { background: rgba(255,255,255,.08); text-decoration: none; }
+.ops-side nav a.active { background: var(--beige-200); color: var(--navy-800); font-weight: 600; }
+.ops-side nav .group { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--navy-300); margin: 1rem .75rem .35rem; }
+.ops-side .foot { margin-top: 2rem; font-size: .8rem; color: var(--navy-300); }
+.ops-main { padding: 1.75rem 2rem 3rem; min-width: 0; }
+.ops-main header.page { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.ops-main header.page h1 { font-size: 1.8rem; margin: 0; }
+.ops-main header.page .crumb { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+@media (max-width: 900px) {
+  .ops { grid-template-columns: 1fr; }
+  .ops-side { position: static; height: auto; }
+  .ops-main { padding: 1.25rem var(--gutter) 2rem; }
+}
+
+/* KPI tiles -------------------------------------------------------------- */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+.kpi { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.kpi .label { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.kpi .value { font-family: var(--font-display); font-size: 2rem; color: var(--navy-700); line-height: 1.1; margin-top: .25rem; }
+.kpi .sub { font-size: .8rem; color: var(--muted); }
+.kpi.navy { background: var(--navy-700); border-color: var(--navy-900); } /* TODO(vzor): border-color repointed --navy-600 -> --navy-900 (deep navy): cobalt on navy is off-brand and 2.41:1. Unlike .card.navy this tile sits on the light ops page ground, where its #2A3D5C fill is already 9.46:1, so it takes a dark rim (1.60:1 inner edge) instead of the light hairline. */
+.kpi.navy .label, .kpi.navy .sub { color: var(--navy-300); }
+.kpi.navy .value { color: var(--beige-50); }
+
+/* Roadmap ---------------------------------------------------------------- */
+.months { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.month { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.month h3 { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.05rem; }
+.month h3 .phase { font-family: var(--font-text); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--brass); }
+.item { padding: .6rem 0; border-top: 1px solid var(--line); }
+.item:first-of-type { border-top: 0; }
+.item .t { font-weight: 600; font-size: .92rem; }
+.item .d { font-size: .85rem; color: var(--grey-700); }
+.item .m { display: flex; gap: .5rem; align-items: center; margin-top: .35rem; flex-wrap: wrap; }
+
+/* Budget bars ------------------------------------------------------------ */
+.bar { height: 10px; border-radius: 999px; background: var(--grey-200); overflow: hidden; position: relative; }
+.bar > span { display: block; height: 100%; background: var(--navy-600); border-radius: 999px; }
+.bar > span.over { background: var(--bad); }
+.bar > span.under { background: var(--navy-800); } /* TODO(vzor): repointed --brass -> --navy-800: --brass is now cobalt, identical to the default .bar > span fill, which would erase the under/normal distinction. Navy is 7.73:1 against the sand track and 2.41:1 against the cobalt default, so the two bar states stay distinguishable by lightness as well as hue. */
+.bar-row { display: grid; grid-template-columns: 80px 1fr 110px 110px; gap: .8rem; align-items: center; font-size: .9rem; padding: .35rem 0; }
+.bar-row.window { background: var(--beige-50); }
+@media (max-width: 600px) { .bar-row { grid-template-columns: 60px 1fr 90px; } .bar-row .hide-sm { display: none; } }
+
+/* Misc ------------------------------------------------------------------- */
+.logo-lockup { display: flex; align-items: center; gap: 1rem; }
+.logo-lockup .mark { width: 56px; height: 56px; }
+.wordmark { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy-800); line-height: 1; }
+.wordmark small { display: block; font-family: var(--font-text); font-size: .68rem; letter-spacing: .58em; text-transform: uppercase; color: var(--muted); margin-top: .35rem; } /* TODO(vzor): T2 -- .2em -> .58em (--vzor-tracking-caps). ~160px wide at .68rem inside a .logo-lockup, which has the full column. */
+.swatches { display: flex; flex-wrap: wrap; gap: .6rem; }
+.swatch { width: 92px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); font-size: .7rem; background: var(--paper); }
+.swatch i { display: block; height: 52px; }
+.swatch span { display: block; padding: .3rem .4rem; color: var(--grey-700); }
+.status-flow { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+.status-flow .badge.current { background: var(--navy-700); color: #fff; }
+.status-flow .arrow { color: var(--grey-400); }
+.dl { display: grid; grid-template-columns: max-content 1fr; gap: .35rem 1.2rem; font-size: .93rem; }
+.dl dt { color: var(--muted); }
+.dl dd { margin: 0; }
+.ring-list { counter-reset: r; list-style: none; padding: 0; margin: 0; }
+.ring-list li { counter-increment: r; display: grid; grid-template-columns: 34px 1fr; gap: .8rem; padding: .7rem 0; border-top: 1px solid var(--line); }
+.ring-list li::before { content: counter(r); width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--navy-600); color: var(--navy-700); display: grid; place-items: center; font-family: var(--font-display); font-size: .95rem; }
+.ring-list li:first-child { border-top: 0; }
+.mono { font-family: var(--font-mono); font-size: .85rem; }
+.flash { position: sticky; top: .5rem; z-index: 5; }
+.print-only { display: none; }
+@media print {
+  .site-header, .site-footer, .ops-side, .btn, form.inline-form, .no-print { display: none !important; }
+  body { background: #fff; }
+  .ops { grid-template-columns: 1fr; }
+  .print-only { display: block; }
+}

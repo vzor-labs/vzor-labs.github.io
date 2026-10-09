@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSPs and development agencies · VZOR</title>
+    <meta name="description" content="VZOR Technologies — Find. Fix. Prove.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/vzor-icon-180.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/pg.css">
+    <script src="/js/pg.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <!-- TODO(vzor): brief step 2.4 assigned vzor-lockup-reversed.svg here; using vzor-mark-reversed.svg.
+           (a) The lockup is 2.33:1, so in a 36x36 box its default preserveAspectRatio="xMidYMid meet"
+           would scale it to 36x15.4 and letterbox it - not stretched, but the word TECHNOLOGIES would
+           render about 3px tall and be unreadable. (b) This header already carries a text wordmark
+           beside the image, which would duplicate the lockup's own wordmark. (c) docs/brand/BRAND.md
+           assigns the eye mark to anything below ~48px, because the shield's circuit line disappears
+           at that size. Alternative: /img/brand/vzor-lockup-reversed.svg at 117x50 with the text spans
+           beside it dropped. -->
+      <img class="mark" src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="36" height="36">
+      <span><span>VZOR</span><span class="sub">Technologies</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" data-toggle="nav">Menu</button>
+    <nav class="nav" id="nav">
+      <a href="/services">Services</a>
+      <a href="/segments" class="active">Who we serve</a>
+      <a href="/agents">AI agents</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="cta" href="/snapshot">Free exposure snapshot</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <a class="small" href="/segments" style="color:var(--beige-200)">&larr; Who we serve</a>
+    <span class="eyebrow mt-2">MSPs and development agencies</span>
+    <h1>Keep your client. Add AppSec depth and WAF tuning under your brand.</h1>
+    <p class="lead">No minimums, monthly billing, co-branded or white-labelled reports, and a conflict screen on every engagement. You are the advisor; we are the execution arm.</p>
+    <div class="actions row">
+      <a class="btn secondary" href="/contact?segment=PARTNERS">Book a discovery call</a>
+      <a class="btn ghost" href="/snapshot">Free exposure snapshot</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="stack">
+      <div class="card">
+        <h3>What usually starts the conversation</h3>
+        <p class="mb-0">A partner&#39;s client asks for a pentest, SOC 2 evidence, insurance evidence or WAF tuning that the partner does not deliver in-house.</p>
+      </div>
+      <div class="card">
+        <h3>The objections we hear, answered</h3>
+        <p class="mb-0">&quot;We already have a pentest vendor&quot; — we are the fix and the tuning, which that vendor does not do. &quot;Margin&quot; — a fixed 15-20% off list plus the partner&#39;s own coordination retainer.</p>
+      </div>
+      <div class="card">
+        <h3>The proof we bring</h3>
+        <p class="mb-0">Partner agreement with non-poaching and conflict screen; sample white-label report; response-time commitments; partner price list.</p>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="card sand">
+        <span class="eyebrow">Recommended first step</span>
+        <h3>Partner Price List (MSPs and development agencies)</h3>
+        <p class="muted">Keep your client. Add our depth under your brand.</p>
+        <div class="price">15-20% off list</div>
+        <a class="btn" href="/services/PARTNER">See what is included</a>
+      </div>
+      <div class="card">
+        <h3>How an engagement runs</h3>
+        <ol class="ring-list">
+          <li><div><b>Discovery and conflict screen.</b> Twenty minutes to confirm scope, authorization and that nothing puts us in conflict.</div></li>
+          <li><div><b>Written authorization.</b> Engagement letter and rules of engagement signed by both sides before any testing.</div></li>
+          <li><div><b>Find, fix, retest.</b> Named practitioner, agent-assisted, on a dated plan with a report due date and a retest date.</div></li>
+          <li><div><b>Attestation.</b> The letter is issued only after the retest record exists. Evidence hashes included.</div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <!-- TODO(vzor): brief step 2.4 assigned /img/brand/vzor-mark.svg at the old 220x50 box; two deviations.
+             (1) Using the reversed variant: this footer ground is deep navy (the navy-900 token), so the
+             navy mark would be invisible on it. (2) Size changed from 220x50 to 50x50: the mark's viewBox
+             is square (0 0 200 200), so at 220x50 its default preserveAspectRatio="xMidYMid meet" would
+             centre a 50x50 mark inside a 220-wide box - not distorted, but with ~170px of dead space that
+             the block-level img would hold open above the footer tagline. 50x50 removes it.
+             Alternative that keeps a wordmark in the footer: /img/brand/vzor-lockup-reversed.svg at 117x50. -->
+        <img src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="50" height="50">
+        <p class="mt-2">Find. Fix. Prove. A small, named practice for organizations that need weaknesses found, fixed with their team, and proven to an auditor, insurer or customer.</p>
+        <p><span>Toronto</span> · <a href="mailto:hello@vzor.ca">hello@vzor.ca</a></p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul class="clean">
+          <li><a href="/services/WEBAPP_FIX">Web app review + fix sprint</a></li>
+          <li><a href="/services/BASELINE">Insurance-readiness baseline</a></li>
+          <li><a href="/services/WAF_TUNING">WAF tuning sprint</a></li>
+          <li><a href="/services/RETAINER">Co-managed retainer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul class="clean">
+          <li><a href="/agents">Our AI agents</a></li>
+          <li><a href="/trust">Statement of practice</a></li>
+          <li><a href="/about">About the practice</a></li>
+          <li><a href="/segments/PARTNERS">Partner program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Start</h4>
+        <ul class="clean">
+          <li><a href="/snapshot">Free exposure snapshot</a></li>
+          <li><a href="/contact">Book a discovery call</a></li>
+          
+          
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span>2026</span> <span>VZOR Technologies</span>.</span>
+      Readiness assessments and attestation letters describe work performed; they are not certifications and not a guarantee against compromise.
+      Every engagement is authorized in writing before any testing starts.
+    </div>
+  </div>
+</footer>
+</body>
+</html>
