@@ -1,8 +1,6 @@
-/* VZOR — small progressive enhancements. No framework, no tracking. */
 (function () {
   "use strict";
 
-  // Mobile navigation toggle
   document.querySelectorAll("[data-toggle='nav']").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var nav = document.getElementById("nav");
@@ -10,19 +8,16 @@
     });
   });
 
-  // Auto-hide flash messages after a few seconds
   document.querySelectorAll(".alert.ok").forEach(function (el) {
     setTimeout(function () { el.style.transition = "opacity .6s"; el.style.opacity = "0"; }, 6000);
   });
 
-  // Confirm irreversible transitions in the ops area
   document.querySelectorAll("form[data-confirm]").forEach(function (form) {
     form.addEventListener("submit", function (ev) {
       if (!window.confirm(form.getAttribute("data-confirm"))) ev.preventDefault();
     });
   });
 
-  // Copy-to-clipboard for drafts
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var target = document.getElementById(btn.getAttribute("data-copy"));
@@ -35,7 +30,6 @@
     });
   });
 
-  // Offer -> tier dependent select on the engagement form
   var offerSelect = document.getElementById("offerCode");
   var tierSelect = document.getElementById("tierName");
   if (offerSelect && tierSelect) {

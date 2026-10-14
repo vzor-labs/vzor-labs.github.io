@@ -18,14 +18,7 @@
 <header class="site-header">
   <div class="container">
     <a class="brand" href="/">
-      <!-- TODO(vzor): brief step 2.4 assigned vzor-lockup-reversed.svg here; using vzor-mark-reversed.svg.
-           (a) The lockup is 2.33:1, so in a 36x36 box its default preserveAspectRatio="xMidYMid meet"
-           would scale it to 36x15.4 and letterbox it - not stretched, but the word TECHNOLOGIES would
-           render about 3px tall and be unreadable. (b) This header already carries a text wordmark
-           beside the image, which would duplicate the lockup's own wordmark. (c) docs/brand/BRAND.md
-           assigns the eye mark to anything below ~48px, because the shield's circuit line disappears
-           at that size. Alternative: /img/brand/vzor-lockup-reversed.svg at 117x50 with the text spans
-           beside it dropped. -->
+      
       <img class="mark" src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="36" height="36">
       <span><span>VZOR</span><span class="sub">Technologies</span></span>
     </a>
@@ -37,7 +30,7 @@
       <a href="/trust">Trust</a>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
-      <a class="cta" href="/snapshot">Free exposure snapshot</a>
+      <a class="cta" href="mailto:hello@vzor.ca?subject=Free%20exposure%20snapshot">Free exposure snapshot</a>
     </nav>
   </div>
 </header>
@@ -152,13 +145,7 @@
   <div class="container">
     <div class="cols">
       <div>
-        <!-- TODO(vzor): brief step 2.4 assigned /img/brand/vzor-mark.svg at the old 220x50 box; two deviations.
-             (1) Using the reversed variant: this footer ground is deep navy (the navy-900 token), so the
-             navy mark would be invisible on it. (2) Size changed from 220x50 to 50x50: the mark's viewBox
-             is square (0 0 200 200), so at 220x50 its default preserveAspectRatio="xMidYMid meet" would
-             centre a 50x50 mark inside a 220-wide box - not distorted, but with ~170px of dead space that
-             the block-level img would hold open above the footer tagline. 50x50 removes it.
-             Alternative that keeps a wordmark in the footer: /img/brand/vzor-lockup-reversed.svg at 117x50. -->
+        
         <img src="/img/brand/vzor-mark-reversed.svg" alt="VZOR" width="50" height="50">
         <p class="mt-2">Find. Fix. Prove. A named practice for organizations that need weaknesses found, fixed with their team, and proven to an auditor, insurer or customer.</p>
         <p><span>Toronto</span> · <a href="mailto:hello@vzor.ca">hello@vzor.ca</a></p>
