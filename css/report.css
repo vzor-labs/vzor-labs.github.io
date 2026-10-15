@@ -1,0 +1,59 @@
+
+.report { max-width: 980px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.report-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 0 1.25rem; border-bottom: 1px solid var(--line, #d9d2c3); }
+.report-head .mark { display: flex; align-items: center; gap: .75rem; }
+.report-head .mark img { width: 44px; height: 44px; }
+.report-head .tag { font-size: .95rem; color: var(--muted, #4A5A6E); }
+.report-title { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; padding: 1.5rem 0; }
+.report-title h1 { margin: 0 0 .35rem; font-size: 2rem; line-height: 1.1; }
+.report-title .domain { font-size: 1.15rem; word-break: break-all; }
+.report-title .meta { margin: .5rem 0 0; color: var(--muted, #4A5A6E); font-size: .95rem; }
+.score { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 150px; height: 150px; border-radius: 50%; border: 8px solid; text-align: center; }
+.score .grade { font-size: 3rem; line-height: 1; font-weight: 600; }
+.score .points { font-size: .95rem; color: var(--muted, #4A5A6E); }
+.grade-a { border-color: #2e8b57; } .grade-a .grade { color: #2e8b57; }
+.grade-b { border-color: #6c9a3b; } .grade-b .grade { color: #6c9a3b; }
+.grade-c { border-color: #c48a1a; } .grade-c .grade { color: #c48a1a; }
+.grade-d { border-color: #c45a1a; } .grade-d .grade { color: #c45a1a; }
+.grade-f { border-color: #b3261e; } .grade-f .grade { color: #b3261e; }
+.counts { display: flex; gap: 1rem; flex-wrap: wrap; margin: .25rem 0 1.5rem; }
+.counts span { padding: .3rem .7rem; border-radius: 999px; font-size: .9rem; border: 1px solid var(--line, #d9d2c3); }
+.fixes { margin: 0 0 2rem; padding: 1.25rem 1.5rem; border-radius: var(--radius, 10px); background: var(--beige-200, #efe8da); }
+.fixes h2 { margin: 0 0 .75rem; font-size: 1.25rem; }
+.fixes ol { margin: 0; padding-left: 1.4rem; }
+.fixes li { margin: .5rem 0; }
+.fixes .why { display: block; font-size: .92rem; color: var(--muted, #4A5A6E); }
+.area { margin: 0 0 2rem; }
+.area h2 { font-size: 1.3rem; margin: 0 0 .5rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line, #d9d2c3); }
+.checks { width: 100%; border-collapse: collapse; }
+.checks th, .checks td { text-align: left; vertical-align: top; padding: .6rem .5rem; border-bottom: 1px solid var(--line, #d9d2c3); font-size: .95rem; }
+.checks th { font-weight: 600; color: var(--muted, #4A5A6E); font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; }
+.checks td.status { width: 7.5rem; white-space: nowrap; }
+.checks .evidence { color: var(--muted, #4A5A6E); font-size: .9rem; margin: .2rem 0 0; }
+.checks .fix { font-size: .9rem; margin: .35rem 0 0; }
+.checks .fix b { font-weight: 600; }
+.pill { display: inline-block; padding: .2rem .6rem; border-radius: 999px; font-size: .8rem; font-weight: 600; letter-spacing: .02em; }
+.pill.pass { background: #e3f3e8; color: #1f6b3d; }
+.pill.warn { background: #fbefd6; color: #8a5a06; }
+.pill.fail { background: #f9e1df; color: #8e1d16; }
+.pill.info { background: #e6eaf2; color: #2A3D5C; }
+.pill.unknown { background: #eeeeee; color: #555; }
+.report-notes { font-size: .9rem; color: var(--muted, #4A5A6E); margin: 1.5rem 0; }
+.report-cta { margin: 2rem 0 0; padding: 1.5rem; border-radius: var(--radius, 10px); background: var(--navy-700, #0F2440); color: var(--beige-100, #efe8da); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.report-cta h2 { margin: 0 0 .25rem; color: inherit; font-size: 1.2rem; }
+.report-cta p { margin: 0; }
+.report-cta .btn { white-space: nowrap; }
+.report-foot { margin-top: 2rem; font-size: .85rem; color: var(--muted, #4A5A6E); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+@media (max-width: 640px) {
+  .report-title { grid-template-columns: 1fr; }
+  .score { width: 120px; height: 120px; }
+  .checks td.status { width: auto; }
+}
+@media print {
+  .site-header, .site-footer, .no-print { display: none !important; }
+  .report { max-width: none; padding: 0; }
+  .report-cta { background: none; color: inherit; border: 1px solid #999; }
+  .report-cta .btn { display: none; }
+  .area, .fixes { break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+}
