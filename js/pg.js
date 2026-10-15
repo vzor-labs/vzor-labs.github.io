@@ -18,6 +18,10 @@
     });
   });
 
+  document.querySelectorAll("[data-print]").forEach(function (btn) {
+    btn.addEventListener("click", function () { window.print(); });
+  });
+
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var target = document.getElementById(btn.getAttribute("data-copy"));
