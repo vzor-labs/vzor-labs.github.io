@@ -113,6 +113,7 @@ ul.ticks li::before {
 .section.navy .lead, .section.navy p { color: var(--beige-200); }
 .section.navy a { color: var(--navy-500); }
 .section.sand { background: var(--beige-200); }
+.promo-video video { display: block; width: 100%; max-width: 960px; height: auto; aspect-ratio: 16 / 9; margin: 0 auto; border-radius: var(--radius); }
 .grid { display: grid; gap: 1.25rem; }
 .grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
