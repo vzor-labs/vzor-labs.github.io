@@ -26,7 +26,7 @@
     <nav class="nav" id="nav">
       <a href="/services" class="active">Services</a>
       <a href="/segments">Who we serve</a>
-      <a href="/agents">AI agents</a>
+      <a href="/agents">Agents</a>
       <a href="/trust">Trust</a>
       <a href="/about">About</a>
       <a href="https://app.vzor.ca/contact">Contact</a>
@@ -42,7 +42,7 @@
       <span class="eyebrow mt-2">FREE</span>
       <h1>External Exposure Snapshot</h1>
       <p class="lead">What an attacker sees from outside, in plain language.</p>
-      <p>A bounded, read-only look at one domain from the outside, run by our Scout agent and reviewed by a practitioner. No exploitation, no forms submitted, no surprises. Free, ungated, and the natural first step before a baseline.</p>
+      <p>Passive, public checks on your domain: DNS, email authentication, TLS, web headers, certificate exposure. Automatic; the report is in your inbox within about ten minutes.</p>
     </div>
     <div class="card sand">
       <div class="price">Free</div>
@@ -60,11 +60,13 @@
     <div>
       <h2>What you get</h2>
       <ul class="ticks">
-        <li>Certificate and TLS posture</li>
-        <li>security headers and cookie flags</li>
-        <li>exposed services and obvious version disclosure</li>
-        <li>one-page plain-language summary with next steps</li>
-        <li>practitioner review before anything is sent.</li>
+        <li>DNS and DNSSEC</li>
+        <li>email authentication: SPF, DMARC, DKIM, MTA-STS, TLS-RPT</li>
+        <li>TLS certificate, chain and protocol versions</li>
+        <li>web security headers, cookie flags and version disclosure</li>
+        <li>hostnames exposed in certificate-transparency logs</li>
+        <li>a score, a grade and the three fixes worth doing first</li>
+        <li>the report as a page and a PDF, by email, with a 30-day link</li>
       </ul>
       
     </div>
@@ -74,8 +76,8 @@
         <p class="mb-0">Any first conversation; an insurance renewal on the horizon; the question &quot;what would an attacker see?&quot;</p>
       </div>
       <div class="card">
-        <h3>How the agents help</h3>
-        <p class="mb-0">Triage clusters the raw findings, Warden drafts WAF exceptions with expiry and rollback, Scribe drafts the report and attestation from validated evidence. A practitioner validates every finding, approves every change and signs every letter. <a href="/agents">How the human gates work</a></p>
+        <h3>A person signs</h3>
+        <p class="mb-0">A practitioner validates every finding, approves every change and signs every letter. The AI agents VZOR runs watch VZOR's own systems, not your engagement. <a href="/agents">How each agent works</a></p>
       </div>
       
     </div>
@@ -103,7 +105,7 @@
       <div>
         <h4>Practice</h4>
         <ul class="clean">
-          <li><a href="/agents">Our AI agents</a></li>
+          <li><a href="/agents">Our agents</a></li>
           <li><a href="/trust">Statement of practice</a></li>
           <li><a href="/about">About the practice</a></li>
           <li><a href="/segments/PARTNERS">Partner program</a></li>

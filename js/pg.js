@@ -34,6 +34,26 @@
     });
   });
 
+  document.querySelectorAll("[data-video]").forEach(function (figure) {
+    var video = figure.querySelector("video");
+    if (!video) return;
+    var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduced) {
+      video.autoplay = true;
+      var started = video.play();
+      if (started && started.catch) started.catch(function () {});
+    }
+    var button = figure.querySelector("[data-video-sound]");
+    if (button) {
+      button.addEventListener("click", function () {
+        video.muted = false;
+        video.currentTime = 0;
+        var playing = video.play();
+        if (playing && playing.catch) playing.catch(function () {});
+      });
+    }
+  });
+
   var offerSelect = document.getElementById("offerCode");
   var tierSelect = document.getElementById("tierName");
   if (offerSelect && tierSelect) {
